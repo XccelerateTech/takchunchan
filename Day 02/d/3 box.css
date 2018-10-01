@@ -1,0 +1,21 @@
+#red {
+    background-color: red;
+    width: 100pt;
+    height: 100pt;
+    margin: 0 auto;
+    clear: both;
+}
+
+#green {
+    background-color: green;
+    width: 100pt;
+    height: 100pt;
+    float: left;
+}
+
+#blue {
+    background-color: blue;
+    width: 100pt;
+    height: 100pt;
+    float: right;
+}

@@ -1,0 +1,27 @@
+#boxes {
+    display: flex;
+    justify-content: space-between;
+    height: 300pt;
+}
+
+#red {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    align-self: flex-end;
+}
+
+#green {
+    background-color: green;
+    width: 100px;
+    height: 100px;
+    align-items: flex-start;
+    
+}
+
+#blue {
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+    align-items: flex-start;
+}

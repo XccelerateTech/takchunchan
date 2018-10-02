@@ -1,0 +1,234 @@
+* {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+body {
+    margin: 0;
+    border:0;
+    padding:0;
+    color: white;
+    width: 100vw;
+}
+div {
+    margin: 0 0;
+    border: 0;
+    padding: 0;
+}
+
+p {
+    color: rgba(255,255,255,0.7)}
+
+ /*first part*/   
+header {
+    background-image: url("http://adventurega.me/bootstrap/img/header.jpg");
+    height: 700px;
+    width: 100vw;
+}
+
+.navbar {
+    background:transparent;
+    color: white;
+    text-transform: capitalize;
+    border-bottom: 1px solid grey;
+}
+
+.navbar-light .navbar-brand  {
+    color: white;
+    text-transform: capitalize;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+    text-transform: capitalize;
+}
+
+.firstpart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    justify-content: center;
+    height: 100%;
+    background-color: transparent;
+}
+
+ /*second part*/ 
+.secondpart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    background-color: #f05f40;
+    padding-bottom: 50px;
+}
+
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    position: relative;
+    max-width: 100%;
+    font-size: 40px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+p {
+    width: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin-bottom: 0;
+}
+
+.btn {max-width: 100%;
+    display: block;
+    white-space: normal;
+    border-radius: 35px;
+    padding: 15px 15px;
+    font-size: 15px;
+    background-color: #f05f40;
+    border-color: transparent;
+    font-weight: bold;
+    color: white;
+    margin-top: 30px;
+
+}
+
+.btn2 {max-width: 100%;
+    display: block;
+    white-space: normal;
+    border-radius: 35px;
+    padding: 15px 15px;
+    font-size: 15px;
+    background-color: white;
+    color: black;
+    border-color: transparent;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+div.jumbotron {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+    align-items: center;
+}
+
+
+hr {
+    max-width: 50px;
+    border-color: #f05f40;
+    border-width: 3px;
+}
+
+.light{
+    max-width: 50px;
+    border-color: white;
+    border-width: 3px;
+}
+
+
+/*third part*/
+
+.thirdpart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    background-color: white;
+    color: black;
+    height: 100%;
+}
+
+.icons {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 40px;
+    padding-bottom: 50px;
+}
+
+.test {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#black {
+    color: black;
+}
+
+.fab{
+    font-size: 50px;
+    color: #f05f40;
+    margin-bottom: 25px;
+}
+
+/* forth part*/
+.fourthpart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    background-color: black;
+    color: black;
+    height: 100%;
+    padding-bottom: 50px;
+}
+
+.album {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;    
+}
+
+.photo {
+    width: auto;
+}
+
+.test2 {
+    padding-top: 30px;
+    color: white;
+}
+
+.btn3 {max-width: 100%;
+    display: block;
+    white-space: normal;
+    border-radius: 35px;
+    padding: 15px 50px;
+    background-color: white;
+    color: black;
+    border-color: transparent;
+    font-weight: bold;
+    margin-top: 20px;
+    text-transform: uppercase;
+    margin-top: 30px;}
+
+/*fifth part*/
+
+.fifthpart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    background-color: white;
+    color: black;
+    height: 100%;
+}

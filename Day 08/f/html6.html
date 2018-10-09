@@ -26,10 +26,12 @@
             document.getElementById("info-field") //returns <div id="info-field"><p>some info</p></div>
             document.getElementsByClassName("content-section") //returns <div class="content-section">...</div>,<div class="content-section">...</div>
             document.getElementsByTagName("h3") //returns <h3>Section Heading</h3>
-          
-            let paragraph = document.getElementsByClassName("content-section");
-            console.log(paragraph)
+            
+            let byClass = (className) => {
+                return document.getElementsByClassName(className)}
 
-        </script>
+            byClass("content-section")
+
+             </script>
     </body>
 </html>

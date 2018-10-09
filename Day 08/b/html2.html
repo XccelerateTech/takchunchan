@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Retrieve Data from Rest Countries</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <h1>Get my file</h1>
+    <script>
+        
+    let informMe = (endpoint, value, callback) => {
+
+        var http = new XMLHttpRequest();
+            
+            http.open('GET', `https://restcountries.eu/rest/v2/${endpoint}/${value}`);
+
+            http.onreadystatechange = function() {
+                if(http.readyState != XMLHttpRequest.DONE) {
+                    return;
+                } else if(http.status == 200) {
+                    callback (http.responseText);                   
+                } else {
+                    console.log('error occurred' + http.status);
+                }
+            };
+            
+            http.send();       
+ }
+      
+informMe ('callingcode', '852', function(callback){
+    console.log(JSON.parse(callback)[0].name)
+})
+    
+</script>
+
+</body>
+</html>

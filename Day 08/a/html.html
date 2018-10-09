@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Retrieve Data from My Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<body>
+    <h1>Get my file</h1>
+    <script>
+    var http = new XMLHttpRequest();
+
+    http.open('GET', "http://127.0.0.1:8080/data.json");
+
+    http.onreadystatechange = function() {
+        if(http.readyState != XMLHttpRequest.DONE) {
+            return;
+        } else if(http.status == 200) {
+            console.log(http.responseText);
+        } else {
+            console.log('error occurred' + http.status);
+        }
+    }
+    // onreadystatechange should be before http.send()
+    http.send();
+</script>
+
+</body>
+</html>

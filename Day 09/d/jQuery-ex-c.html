@@ -1,0 +1,152 @@
+<html>
+    <head>
+    </head>
+    <body>
+       
+        <header id='header'>
+            <h1>Contacts</h1>
+        </header>
+        <div id="content">
+            <section class="sections" id="new-contact">
+                <h1>Create New Contact</h1>
+                <form id="form1">
+                    <div id="row-name">
+                        <input type='text' name="name" placeholder="Name"/>
+                    </div>
+                    <div id="row-phone">
+                        <input type='text' name="phone" placeholder="Telephone Number"/>
+                    </div>
+                    <div id="row-email">
+                        <input type='text' name="email" placeholder="Email"/>
+                    </div>
+                    <div id="row-submit">
+                        <input type="submit" value="submit"/>
+                    </div>
+                </form>
+            </section>
+            <section class="sections" id="update-contact">
+                    <h1>Update Contact</h1>
+                    <form id="form2">
+                        <div id="row-name">
+                            <input type='text' name="name2" placeholder="Name"/>
+                        </div>
+                        <div id="row-phone">
+                            <input type='text' name="phone2" placeholder="Telephone Number"/>
+                        </div>
+                        <div id="row-email">
+                            <input type='text' name="email2" placeholder="Email"/>
+                        </div>
+                        <div id="row-submit">
+                            <input type="submit" value="submit"/>
+                        </div>
+                    </form>
+                </section>
+            <section class="sections" id="contact-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Telephone Number</th>
+                            <th>email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row">
+                            <td>Sam</td>
+                            <td>123456789</td>
+                            <td>sam@gmail.com</td>
+                        </tr>
+                        <tr class="row">
+                            <td>Tom</td>
+                            <td>987654321</td>
+                            <td>tom@gmail.com</td>
+                        </tr>
+                        <tr class="row">
+                            <td>Nadim</td>
+                            <td>54678292</td>
+                            <td>nadim@gmail.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <footer>
+        </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+    
+    //1 Adding contact//
+    var newcontact='<tr class="row"><td>Peter</td><td>123456789</td><td>peter@gmail.com</td></tr>';
+    $('#contact-list tbody:last-child').append(newcontact);
+
+    //2 Adding button// 
+    var clearButton= $('<input type="reset" value="Clear">');
+    $('#new-contact form:last-child').append(clearButton);
+    var clearButton2= $('<input type="reset" value="Clear">');
+    $('#update-contact form:last-child').append(clearButton2);
+
+    //3 Change Title
+    document.title = "Tom's contact list application";
+    $("title").html("Tom's contact list application"); 
+
+    //4 Change Color
+    $('#contact-list table').css('color','red');
+
+    //d1 d2 d4 Jquery Validation
+    $('#form1').on('submit', function(){
+        event.preventDefault();
+        var name = event.target.name.value;
+        var telephone = event.target.phone.value;
+        if (name.length > 50){
+            $('input[name=name]').css('border-color','red');
+            alert('name should be less than 50 characters');
+             return false;
+        } else if (telephone.length > 16 || telephone.length < 6)
+        {  $('input[name=phone]').css('border-color','red');
+            alert('phone number should be between 6 numbers to 16 numbers');
+            return false;
+            
+            } else {
+            var name = event.target.name.value;
+             var telephone = event.target.phone.value;
+             var email = event.target.email.value;
+                alert(name + telephone + email);
+            }
+            
+             } )  
+
+    //d3 done on above part 2
+
+    //d5
+    $('#form2').on('submit', function(){
+        event.preventDefault();
+        var updateName = event.target.name2.value;
+        var updateTelephone = event.target.phone2.value;
+        var updateEmail = event.target.email2.value;
+        if (updateName.length > 50){
+            $('input[name=name2]').css('border-color','red');
+            alert('name should be less than 50 characters');
+             return false;
+        } else if (updateTelephone.length > 16 || updateTelephone.length < 6)
+        {  $('input[name=phone2]').css('border-color','red');
+            alert('phone number should be between 6 numbers to 16 numbers');
+            return false;}
+            else {          
+            alert(updateName + updateTelephone + updateEmail);
+            }            
+            }) 
+    //d6
+    $('.row').on('click',function(){
+        var updateName = $(this).find("td:nth-child(1)").text();
+        var updatePhone = $(this).find("td:nth-child(2)").text();
+        var updateEmail = $(this).find("td:nth-child(3)").text();
+        $('input[name=name2]').val(updateName);
+        $('input[name=phone2]').val(updatePhone);
+        $('input[name=email2]').val(updateEmail);
+    })
+
+
+
+    </script>
+    </body>
+</html>

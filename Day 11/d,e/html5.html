@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Retrieve Data from My Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <h1>Sunshine Sunset</h1>
+    <form id="form1">
+        <input type="text" id="lat" placeholder="Latitude" value="22.28552">
+        <input type="text" id="long" placeholder="Longitude" value="114.15769">
+        <button type="submit" value="submit">Submit</button>
+    </form>
+    <div id="results"></div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+    let getData = (latitude, longitude, callback) => {
+        $(function () {
+            var yesterdayData = $.get({ url: `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=yesterday&formatted=0` })
+            var tomorrowData = $.get({ url: `https://api.sunrise-sunset.org/json?lat=${latitude}&lng=${longitude}&date=tomorrow&formatted=0` });
+
+            var combinedData = $.when(yesterdayData, tomorrowData);
+
+            combinedData.done(function (data1, data2) {
+
+                //get all date
+                yesterdaySunrise = new Date(data1[0].results.sunrise);
+                yesterdaySunset = new Date(data1[0].results.sunset);
+                tomorrowSunrise = new Date(data2[0].results.sunrise);
+                tomorrowSunset = new Date(data2[0].results.sunrise);
+                nowTime = new Date();
+
+                //calculate duration
+
+                duration1 = nowTime - yesterdaySunrise;
+                duration2 = nowTime - yesterdaySunset;
+                duration3 = tomorrowSunrise - nowTime;
+                duration4 = tomorrowSunset - nowTime;
+
+                //formatting
+
+                var result1 = Math.floor(duration1 / (1000 * 60 * 60)) + ":" + Math.floor(duration1 / (1000 * 60)) % 60 + ":" + Math.floor(duration1 / 1000) % 60;
+                var result2 = Math.floor(duration2 / (1000 * 60 * 60)) + ":" + Math.floor(duration2 / (1000 * 60)) % 60 + ":" + Math.floor(duration2 / 1000) % 60;
+                var result3 = Math.floor(duration3 / (1000 * 60 * 60)) + ":" + Math.floor(duration3 / (1000 * 60)) % 60 + ":" + Math.floor(duration3 / 1000) % 60;
+                var result4 = Math.floor(duration1 / (1000 * 60 * 60)) + ":" + Math.floor(duration1 / (1000 * 60)) % 60 + ":" + Math.floor(duration1 / 1000) % 60;
+
+                //insert line on webpage    
+                $('#results').append('<p>', `The time from yesterday SUNSHINE to now is ${result1}`);
+                $('#results').append('<p>', `The time from yesterday SUNSET to now is ${result2}`);
+                $('#results').append('<p>', `The time from tomorrow SUNSHINE to now is ${result3}`);
+                $('#results').append('<p>', `The time from tomorrow SUNSET to now is ${result4}`);
+                console.log("This function will be run if the ajax is successful");
+
+            }).fail(function (data1, data2) {
+                console.log("This function will be run if the ajax if failed");
+            })
+        })
+    }
+
+    $('#form1').submit(function (event) {
+        event.preventDefault(); // VERY IMPORTANT. To stop the form from submitting
+        var latitude = event.target.lat.value;
+        var longitude = event.target.long.value;
+        getData(latitude, longitude, function (callback) {
+            console.log(callback)
+        });
+    });
+
+</script>
+
+</html>

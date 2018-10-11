@@ -1,0 +1,14 @@
+// Setup our array
+const avengers = ['Tony Stark', 'Steve Rogers', 'Natasha Romanoff'];
+
+// Destructure array into individual variables. The array pattern
+// is on the left of the assignment (i.e. the '=') and the array being
+// destructured on the right.
+const [ironMan, cap, blackWidow] = avengers;
+
+// ironMan = 'Tony Stark' 
+// cap = 'Steve Rogers'
+// blackWidow = 'Natasha Romanoff'
+
+// Output ironMan:
+ironMan;

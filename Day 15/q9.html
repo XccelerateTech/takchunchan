@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+
+</head>
+
+<body>
+
+<button> randomuser </button>
+
+<ul></ul>
+
+</body>
+
+<script>
+$("button").click(function(){
+$.get("https://randomuser.me/api/", function( data ) {
+    var fullname = data.results[0].name.first + ' ' + data.results[0].name.last;
+    $("ul").append(`<li>${fullname}</li>`)  }
+)})
+
+</script>
+
+</html>

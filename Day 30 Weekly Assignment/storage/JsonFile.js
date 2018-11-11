@@ -32,7 +32,6 @@ module.exports = class JsonFile {
                 if (err) {
                     reject(err);
                 } else {
-                    console.log(data)
                     resolve(transformer(data));
                 }
             });

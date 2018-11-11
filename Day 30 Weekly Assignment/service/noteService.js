@@ -6,12 +6,10 @@ module.exports = class NoteService{
     }
     
 
-    create(post){
+    create(post,user){
         return this.jsonFile.write((data)=>{
-            console.log(data)
-            data.notes.push(post);
+            data[user].push(post);
             return {
-                // id: note.id,
                 data:data
             }
         });

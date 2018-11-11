@@ -18,7 +18,6 @@ class NoteRouter{
     }
 
     get(req,res){
-        console.log(req.auth.user)
         //Validation Logic
         return this.noteService.list(req.auth.user)
             .then((data)=>res.json(data))
@@ -26,8 +25,7 @@ class NoteRouter{
     }
 
     post(req,res){
-        console.log(req.body)
-        return this.noteService.create(req.body)
+        return this.noteService.create(req.body, req.auth.user)
             .then((data)=>res.json(data))
             .catch((err)=> res.status(500).json(err));
     }

@@ -1,0 +1,40 @@
+<h1>Notes</h1>
+{{!-- 
+<img src='/image/a.jpg'> --}}
+
+<!--Note-->
+<template id="note-template" >
+    <div id="note-container" class="col-sm-12 col-md-6 col-lg-4">
+        <p class="content"></p>
+    </div>
+</template>
+
+<div id="content-container" class="row"></div>
+
+<!--End of Note-->
+
+<!--usersFunctions-->
+<div id="usersFunctions">
+
+    <form id="add-note-form" action="/api/note" method="POST" enctype='application/json'>
+        <legend>Add note:</legend>
+        <p>Content:</p>
+        <input type="text" name="content" id="content" placeholder="Input your content">	
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>$(document).ready(function() {
+    $('#add-note-form').on('submit', function(e) {
+          e.preventDefault();
+          setTimeout(function() {
+               window.location.reload();
+          },0);
+          this.submit();
+    });
+
+});</script>
+
+</div>
+
+
+<!--end of usersFunctions-->

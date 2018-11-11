@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#content-container {
+    position: center;
+    padding: 1vw 2vw 1vw 2vw;
+    display: flex;
+    
+}
+
+#note-container {
+    border: 1px solid #efefef;
+    background-color: #cccccc;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 150px;
+    border: 5px 5px;
+}

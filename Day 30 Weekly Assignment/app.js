@@ -56,8 +56,7 @@ let noteService = new NoteService(new jsonFile('note.json'));
 
 let NoteRouter = require('./routers/NoteRouter');
 
-app.use('/api/note',new NoteRouter(noteService).router());
-
+app.use('/api/note/',new NoteRouter(noteService).router());
 
 //listen 
 app.listen(3000);

@@ -8,7 +8,7 @@ module.exports = class NoteService{
 
     create(post,user){
         return this.jsonFile.write((data)=>{
-            data[user].push(post);
+            data[user].unshift(post);
             return {
                 data:data
             }
@@ -34,21 +34,21 @@ module.exports = class NoteService{
             })
     }
 
-    // update(id,newUser){
-    //     return this.jsonFile.write((data)=>{
-    //             let user = data.users.map((user)=>{
-    //                 if(user.id == id){
-    //                     return Object.assign(user,newUser);
-    //                 }else{
-    //                     return user;
-    //                 }
-    //             })
-    //             return {
-    //                 id:id,
-    //                 data:data
-    //             }
-    //         })
-    // }
+    update(id,user){
+        return this.jsonFile.write((data)=>{
+                let user = data.users.map((user)=>{
+                    if(user.id == id){
+                        return Object.assign(user,newUser);
+                    }else{
+                        return user;
+                    }
+                })
+                return {
+                    id:id,
+                    data:data
+                }
+            })
+    }
 
     // search(searchCriteria,limit=100,offset=0){
     //     return this.jsonFile.read((data)=>{

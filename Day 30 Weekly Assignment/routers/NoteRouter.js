@@ -34,9 +34,11 @@ class NoteRouter{
 
     put(req,res){
         //Validation Logic
-        onsole.log('routerput')
+        console.log('routerput')
         console.log(req.params.id)
-        return this.noteService.update(req.params.id,req.body)
+        console.log(req.body)
+        console.log(req.auth.user)
+        return this.noteService.update(req.params.id, req.body, req.auth.user)
             .then((data)=>res.json(data))
             .catch((err)=>res.status(500).json(err));
     }

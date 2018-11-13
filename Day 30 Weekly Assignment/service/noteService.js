@@ -1,16 +1,16 @@
 
-module.exports = class NoteService{
+module.exports = class NoteService {
 
-    constructor(jsonFile){
+    constructor(jsonFile) {
         this.jsonFile = jsonFile;
     }
-    
 
-    create(post,user){
-        return this.jsonFile.write((data)=>{
+
+    create(post, user) {
+        return this.jsonFile.write((data) => {
             data[user].unshift(post);
             return {
-                data:data
+                data: data
             }
         });
     }
@@ -28,39 +28,34 @@ module.exports = class NoteService{
     // }
 
 
-    list(user){
-        return this.jsonFile.read((data)=>{
-                return data[user];
-            })
+    list(user) {
+        return this.jsonFile.read((data) => {
+            return data[user];
+        })
     }
 
-    update(id,user){
-        return this.jsonFile.write((data)=>{
-                let user = data.users.map((user)=>{
-                    if(user.id == id){
-                        return Object.assign(user,newUser);
-                    }else{
-                        return user;
-                    }
-                })
-                return {
-                    id:id,
-                    data:data
+    update(id, body, user) {
+        this.id = id;
+        this.body = body;
+        this.user = user;
+        return this.jsonFile.write((data) => {
+            let notes = data[this.user].map((notes) => {
+                // console.log(data[this.user][this.id]);
+                console.log(notes)
+                if (data[this.user][this.id] == notes) {
+                    console.log('inside')
+                    return Object.assign(data[this.user][this.id], this.body);
+                } else {
+                    return notes;
                 }
-            })
-    }
 
-    // search(searchCriteria,limit=100,offset=0){
-    //     return this.jsonFile.read((data)=>{
-    //             data.users.filter((user)=>{
-    //                 for(let criterion in searchCriteria){
-    //                     if(searchCriteria[criterion] != user[criterion]){
-    //                         return false;
-    //                     }
-    //                 }
-    //                 return true;
-    //             });
-    //             return data.users;
-    //         });
-    // }
+            });
+            return {
+                data: data,
+                id: id
+            }
+
+        });
+    };
+
 }

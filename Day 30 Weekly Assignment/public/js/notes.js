@@ -41,9 +41,11 @@ $().ready(function () {
     });
 });
 
-var temptext;
 
 //onclick change (shit can make it)
+
+var temptext;
+
 $(document).on('click', 'p', function () {
     console.log($(this).attr("id"))
     var temptext = $(this).text();
@@ -53,17 +55,25 @@ $(document).on('click', 'p', function () {
     <input type="submit" value="Submit">
 </form> `)
     console.log($(this).attr("id"))
-
-    // $.ajax({
-    //     'url': '/api/note',
-    //     'type': 'PUT',
-    //     'success': function(data) {
-    //       if (data == "success") {
-    //         alert('request sent!');
-    //       }
-    //     }
-    //   })
-
-
-
 });
+
+$(document).on('submit', '#update-form', function(e){
+    e.preventDefault();
+    putId = $(this).attr("action");
+    var formData = {
+        'content': $('#content:input').val(),
+    };
+    console.log(formData)
+
+    $.ajax({
+        type        : 'put', // define the type of HTTP verb we want to use (POST for our form)
+        url         :  putId, // the url where we want to POST
+        data        : formData, // our data object
+        dataType    : 'json', // what type of data do we expect back from the server
+        encode      : true
+    });
+}
+)
+
+
+//end of on click change

@@ -1,0 +1,16 @@
+{
+  "name": "day34",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "knex": "^0.15.2",
+    "node": "^11.1.0",
+    "pg": "^7.6.1"
+  }
+}

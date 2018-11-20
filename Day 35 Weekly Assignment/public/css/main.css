@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: lightslategray;
+}
+
+h1 {
+    text-align: center;
+    padding: 15px 5px;
+}
+
+#overlay {
+    display: none;
+    position: absolute;
+}
+
+#content-container {
+    position: center;
+    padding: 1vw 2vw 1vw 2vw; 
+    display: flex;
+    justify-content: flex-start;
+}
+
+#note-container {
+    border: 1px solid #efefef;
+    background-color: lightyellow;
+    border-radius: 10px;
+    min-height: 150px;
+    margin: 5px 5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all; word-wrap: break-word
+}
+
+#add-note-form {
+    border: 1px solid #efefef;
+    background-color: lightyellow;
+    border-radius: 10px;
+    min-height: 150px;
+    margin: 5px 5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#content {
+    width: 50%;
+}

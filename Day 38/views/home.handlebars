@@ -1,0 +1,24 @@
+<h1 class="page-header">Notes-taking Apps</h1>
+
+<!--Note-->
+<template id="note-template">
+
+    <div id="note-container" class="col-sm-12 col-md-4 col-lg-2">
+        <p class="content"></p>
+    </div>
+</template>
+
+<div id="content-container" class="row">
+
+<form id="add-note-form" action="/api/note" method="POST" enctype='application/json' class="col-sm-12 col-md-4 col-lg-2" target="dummyframe">
+        <input type="text" name="content" id="content" placeholder="Input your content">
+        <input type="submit" value="Submit">
+</form>     
+
+<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+
+    
+</div>
+
+
+<!--End of Note-->

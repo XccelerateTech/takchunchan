@@ -5,7 +5,6 @@ module.exports = class NoteService {
         this.jsonFile = jsonFile;
     }
 
-
     create(post, user) {
         return this.jsonFile.write((data) => {
             data[user].unshift(post);
@@ -15,17 +14,17 @@ module.exports = class NoteService {
         });
     }
 
-    // delete(postId){
-    //     return this.jsonFile.write((data)=>{
-    //         data.posts = data.posts.filter((post)=>{
-    //             return post.id != postId;
-    //         });
-    //         return {
-    //             id:postId,
-    //             data:data
-    //         }
-    //     });
-    // }
+    delete(postId){
+        return this.jsonFile.write((data)=>{
+            data.posts = data.posts.filter((post)=>{
+                return post.id != postId;
+            });
+            return {
+                id:postId,
+                data:data
+            }
+        });
+    }
 
 
     list(user) {
@@ -40,8 +39,6 @@ module.exports = class NoteService {
         this.user = user;
         return this.jsonFile.write((data) => {
             let notes = data[this.user].map((notes) => {
-                // console.log(data[this.user][this.id]);
-                console.log(notes)
                 if (data[this.user][this.id] == notes) {
                     console.log('inside')
                     return Object.assign(data[this.user][this.id], this.body);

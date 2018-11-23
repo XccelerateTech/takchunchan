@@ -42,7 +42,7 @@ $().ready(function () {
 });
 
 
-//onclick change (shit can make it)
+//onclick change
 
 var temptext;
 
@@ -63,8 +63,6 @@ $(document).on('submit', '#update-form', function(e){
     var formData = {
         'content': $('#content:input').val(),
     };
-    console.log(formData)
-
     $.ajax({
         type        : 'put', // define the type of HTTP verb we want to use (POST for our form)
         url         :  putId, // the url where we want to POST
@@ -72,6 +70,9 @@ $(document).on('submit', '#update-form', function(e){
         dataType    : 'json', // what type of data do we expect back from the server
         encode      : true
     });
+    setTimeout(function () {
+        window.location.reload();
+    }, 0);
 }
 )
 

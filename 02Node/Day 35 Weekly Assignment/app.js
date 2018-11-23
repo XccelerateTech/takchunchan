@@ -8,18 +8,11 @@ const dotenv = require('dotenv').config()
 
 var app = express();
 
-//connect knext
+//connect knex
 const knexConfig = require('./knexfile').development;
 const knex = require('knex')(knexConfig);
 
 //basicAuth
-app.use(basicAuth({
-    authorizer: new AuthChallenger(knex),
-    authorizeAsync: true,
-    challenge: true,
-}));
-
-
 const AuthChallenger = function(knex){
     
     return function (username, password, callback){
@@ -39,6 +32,13 @@ const AuthChallenger = function(knex){
             })
     }
 }
+
+app.use(basicAuth({
+    authorizer: new AuthChallenger(knex),
+    authorizeAsync: true,
+    challenge: true,
+}));
+
 
 
 //handle bar and view controls

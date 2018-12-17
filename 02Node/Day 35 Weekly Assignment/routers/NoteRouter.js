@@ -4,7 +4,9 @@ const express = require("express");
 class NoteRouter{
 
     constructor(noteService){
-        this.noteService = noteService;    }
+        this.noteService = noteService;
+        console.log(noteService);
+    }
 
     router(){
         let router = express.Router();
@@ -25,6 +27,7 @@ class NoteRouter{
 
     post(req,res){
         console.log('routerpost')
+        console.log(req.body)
         return this.noteService.create(req.body, req.auth.user)
             .then((data)=>res.json(data))
             .catch((err)=> res.status(500).json(err));
@@ -32,6 +35,10 @@ class NoteRouter{
 
     put(req,res){
         //Validation Logic
+        console.log('routerput')
+        console.log(req.params.id)
+        console.log(req.body)
+        console.log(req.auth.user)
         return this.noteService.update(req.params.id, req.body, req.auth.user)
             .then((data)=>res.json(data))
             .catch((err)=>res.status(500).json(err));
